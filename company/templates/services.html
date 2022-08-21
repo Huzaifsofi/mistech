@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start %}
+<div class="apple">
+    <div class="mango">
+        <h1 class="mangoone">Servcies</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <h2 class="rock">Account-Based Marketing</h2>
+            <img class="Orange" src="{% static '/images/accountbassed.png' %}" />
+            <p class="paper">It has been proven to help B2B marketers align more strategically with Sales to build personalized campaigns targeted toward specific accounts.</p>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <h2 class="rock">Content Marketing</h2>
+            <img class="Orange" src="{% static 'images/content.png' %}" />
+            <p class="paper">Our technical content writing specialists portrays multiple items that the potential clients comprehend the topic & use it.</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <h2 class="rock">Demand Generation</h2>
+            <img class="Orange" src="{% static 'images/demand.png' %}" />
+            <p class="paper">Organization's lead management framework is critical to improving marketing productivity and performance.</p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <h2 class="rock">Email Marketing</h2>
+            <img class="Orange" src="{% static 'images/email.png' %}" />
+            <p class="paper">Email Marketing is a well-known marketing platform nowadays so as to achieve an multiple number of online audiences
+            </p>
+          </div>
+        </div>
+
+        <div class="column" style="padding-top: 20px;">
+          <div class="card">
+            <h2 class="rock">Lead Generation</h2>
+            <img class="Orange" src="{% static 'images/lead.png' %}" />
+            <p class="paper">Take your products or services directly before your audience. It will increase your exposure & boost sales like never before</p>
+          </div>
+        </div>
+        
+        <div class="column" style="padding-top: 20px;">
+          <div class="card">
+            <h2 class="rock">Telemarketing</h2>
+            <img class="orannge" src="{% static 'images/tele.png' %}" />
+            <p class="paper">We have a team of telemarketing, who can develop the themes. </p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<div>
+    <div>
+        <footer>
+            <div class="footer-content">
+                <h3>MIStechsolutions</h3>
+                <p>Join MIStechsolutions on  ---  Social Media platforms  </p>
+                <ul class="socials">
+                    <li><a href="#"><image src="media/gmail.png" width="25px"></image></a></li>
+                    <li><a href="#"><image src="media/instagram.png" width="25px"></image></a></li>
+                    <li><a href="#"><image src="media/whatsapp.png"width="25px"></image></a></li>
+                    <li><a href="#"><image src="media/linkedin.png" width="25px"></image></a></li>
+                </ul>
+                <div class="footer-bottom">
+                    <p>copyright &copy;2021 <a href="#">MIStechsolutions</a> </p>
+                </div>
+            </div>
+        </footer>    
+    </div>
+</div>
+{% endblock start %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block start %}
+
+<div>
+  <div class="s">
+    <div>
+      <h1 class="f">MIStechsolutions</h1>
+    </div>
+    <div class="container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title">
+              <span>CONTACT</span>
+              <span>US</span>
+            </div>
+            <div class="app-contact">CONTACT INFO : +62 81 314 928 595</div>
+          </div>
+          <div class="screen-body-item">
+            <form method="POST" action="">
+              {% csrf_token %}
+              <div class="app-form">
+                <div class="app-form-group">
+                  <input class="app-form-control" name="name" placeholder="NAME" value="{{ name }}"/>
+                </div>
+                <div class="app-form-group">
+                  <input class="app-form-control" name="email" placeholder="EMAIL" value="{{ email }}" />
+                </div>
+                <div class="app-form-group">
+                  <input class="app-form-control" name="ph_no" placeholder="CONTACT NO" value="{{ ph_no }}" />
+                </div>
+                <div class="app-form-group">
+                  <input class="app-form-control" name="subject" placeholder="subject" value="{{ subject }}" />
+                </div>
+                <div class="app-form-group message">
+                  <input class="app-form-control" name="message" placeholder="MESSAGE" name="{{ message }}"/>
+                </div>
+                <div class="app-form-group buttons">
+                  <button class="app-form-button">CANCEL</button>
+                  <input type="submit" class="app-form-button"></input>
+                </div>
+              </form>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="notok">
+  <footer>
+      <div class="footer-content">
+          <h3>MIStechsolutions</h3>
+          <p>Join MIStechsolutions on  ---  Social Media platforms </p>
+          <ul class="socials">
+              <li><a href="#"><image src="media/gmail.png" width="25px"></image></a></li>
+              <li><a href="#"><image src="media/instagram.png" width="25px"></image></a></li>
+              <li><a href="#"><image src="media/whatsapp.png" width="25px"></image></a></li>
+              <li><a href="#"><image src="media/linkedin.png" width="25px"></image></a></li>
+          </ul>
+          <div class="footer-bottom">
+              <p>copyright &copy;2021 <a href="{% url 'home' %}">Mistechsolutions</a> </p>
+          </div>
+      </div>
+  </footer>    
+</div>
+{% endblock start %}
+

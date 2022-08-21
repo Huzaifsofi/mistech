@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start %}
+<div>
+   <!-- <img src="media/wallpaper.jpg" class="img-fluid" alt="...">-->
+</div>
+
+<div id="bg" class="ex" style="background-image: url('{% static 'images/wallpaper.jpg' %}')";,background-size: 1800px 900px;,background-repeat: no-repeat;,background-position: top;,background-attachment: fixed;>
+    <h2 class="f"> MIStechsolutions</h2>
+    <h3 class="ck">We belive in producing the quality services<h3>
+        <div class="apple">
+            <div class="mango">
+                <h1 class="mangoone">WHY US?</h1>
+                <h3 class="mangotwo">The Mistechsolutions thought process is rooted in 
+                    “Evaluate, Discuss and Convert“.
+                     We believe that in-depth market research 
+                     coupled with motivating collaborations 
+                     create powerful tactics that boost business efforts<h3>
+            </div>
+            <div class="row">
+                <div class="column">
+                  <div class="card">
+                    <h2 class="rock">Discuss</h2>
+                    <img class="Orange" src="{% static '/images/nice.png' %}" />
+                    <p class="paper">Extensively engage with organizations to create customized strategies compatible with their services, clientele, and work ethos.</p>
+                  </div>
+                </div>
+              
+                <div class="column">
+                  <div class="card">
+                    <h2 class="rock">Evaluate</h2>
+                    <img class="Orange" src="{% static 'images/item.png' %}" />
+                    <p class="paper">Leverage business intelligence to identify profitable opportunities and ascertain the sales readiness of accounts.</p>
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div class="card">
+                    <h2 class="rock">Convert</h2>
+                    <img class="Orange" src="{% static 'images/king.png' %}" />
+                    <p class="paper">Develop innovative action plans to target potential leads and ensure the increased conversion rates of the client`s sales team.</p>
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div class="card">
+                    <h2 class="rock">Creativity</h2>
+                    <img class="orannge" src="{% static 'images/invovations.png' %}" />
+                    <p class="paper">Our creativity has always been a strong factor whether it’s through our customer engagement technology, or through our marketing.</p>
+                  </div>
+                </div>
+              </div>
+        </div>        
+</div>
+
+<div class="cat">
+  <div class="mango">
+    <h1 class="mangoone">Services</h1>
+  <div>
+  
+    <div class="card">
+      <div class="card-header">
+        Vist over Servcies Page
+      </div>
+      <div class="card-body">
+        <div class="text-center">
+          <img src="{% static 'images/services.png' %}" class="rounded" alt="..." width="20%" />
+        </div>
+        <h5 class="card-title">Our customers are our priority</h5>
+        <p class="card-text">We provide the best and quality services, throught understanding the process and the market</p>
+        <a href="{% url 'services' %}" class="btn btn-primary">Vist Services</a>
+      </div>
+    </div>
+</div>
+</div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>MIStechsolutions</h3>
+            <p>Join MIStechsolutions on  ---  Social Media platforms  </p>
+            <ul class="socials">
+                <li><a href="#"><image src="media/gmail.png" width="25px"></image></a></li>
+                <li><a href="#"><image src="media/instagram.png" width="25px"></image></a></li>
+                <li><a href="#"><image src="media/whatsapp.png" width="25px"></image></a></li>
+                <li><a href="#"><image src="media/linkedin.png" width="25px"></image></a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p>copyright &copy;2021 <a href="#">Mistechsolutions</a> </p>
+            </div>
+        </div>
+    </footer>    
+</div>
+{% endblock start %}
