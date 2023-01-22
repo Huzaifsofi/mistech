@@ -1,0 +1,356 @@
+Write a menu driven program using 'C' for singly linked list-
+
+-	To create linked list.
+
+-	To display linked list
+
+-	To search node in linked list.
+
+-	Insert at last position
+
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+
+struct node {
+	int data;
+	struct node *next;
+}*head;
+
+
+// 1. create
+
+void create(int data) {
+
+	struct node *q,*temp;
+	temp=(struct node *)malloc(sizeof(struct node));
+	temp->data=data;
+	temp->next=NULL;
+	if(head==NULL)	{
+		head=temp;
+	}
+	else {
+		q=head;
+		while(q->next!=NULL) {
+			q=q->next;
+		}
+		q->next=temp;
+	}
+}
+
+
+// 2. Display
+
+void display() {
+	struct node *q;
+	if(head==NULL) {
+		printf("\nLIST IS EMPTY");
+	}
+	else {
+		q=head;
+		while(q!=NULL) {
+			printf("%d->",q->data);
+			q=q->next;
+		}
+		printf("NULL");
+	}
+}
+
+
+
+// 3. Search
+
+void search(int data) {
+    int pos=1;
+	struct node *q,*temp;
+	q=head;
+	while(q!=NULL) {
+		if(q->data==data) {
+			printf("\nElement Is Found at %d",pos);
+			break;
+		}
+		else {
+			q=q->next;
+		}
+    pos++;
+	}
+	if(q==NULL) {
+		printf("\nElement is Not Found");
+	}
+}
+
+
+// 4. Insert at last
+
+void insert(int data) {
+     struct node* newNode = (struct node*)malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if (head == NULL)
+    {
+        head = newNode;
+        return;    
+    } else {
+        struct node* temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+
+int main() {
+
+	int ch,n,i,m,a,pos;
+
+	head=NULL;
+	do {
+		printf("MENU");
+
+		printf("\n1.Create");
+
+		printf("\n2.Display");
+
+		printf("\n3.Search");
+
+		printf("\n4.Insert at last");
+
+		printf("\n5.Exit");
+
+		printf("\n\nEnter your choice: ");
+
+		scanf("%d",&ch);
+		switch(ch) {
+			case 1:	printf("\n\nHow many nodes do you want to create? ");
+					scanf("%d",&n);
+					for(i=0;i<n;i++) {
+						printf("\nEnter the data: ");
+						scanf("%d",&m);
+						create(m);
+					}
+					break;
+
+			case 2: display();
+					break;
+
+					
+			case 3: printf("\nEnter the element for search: ");
+					scanf("%d",&m);
+					search(m);
+					break;
+
+			case 4: printf("\nEnter the data: ");
+					scanf("%d",&m);
+					insert(m);
+					break;
+
+			case 5: exit(0);
+		}
+
+	} while(ch!=7);
+	getch();
+	return 0;
+}
+
+
+
+
+
+
+/* Write a menu driven program using 'C' for Dynamic implementation of Queue for integers. The menu includes 
+
+-	Insert
+
+-	Delete
+
+-	Display
+
+-	Exit
+
+*/
+#include<stdio.h>
+#include<conio.h>
+struct NODE
+{
+ int data;
+ struct NODE *next;
+};
+typedef struct NODE node;
+node *front=NULL,*rear=NULL;
+int isempty()
+{
+ if(front==NULL && rear==NULL)
+ return 1;
+ else
+ return 0;
+}
+node * getnodenum(int data)
+{
+ node *temp;
+ temp=(node *)malloc(sizeof(node));
+ temp->data=data;
+ temp->next=NULL;
+ return temp;
+}
+void add(int data)
+{
+ node *temp;
+ temp=getnodenum(data);
+ if(front==NULL)
+ {
+rear=temp;
+front=temp;
+ }
+ else
+ {
+rear->next=temp;
+rear=temp;
+ }
+}
+int deleteq()
+{
+    int val;
+ node *ptr;
+ ptr=front;
+  val=front->data;
+ if(front->next!=NULL)
+ front=front->next;
+ else
+ {
+ front=NULL;
+ rear=NULL;
+ }
+ free(ptr);
+ return(val);
+}
+void display()
+{
+ node *ptr;
+ for(ptr=front;ptr!=rear;ptr=ptr->next)
+ printf(" %d",ptr->data);
+ printf(" %d",ptr->data);
+}
+void main()
+{
+ int ch,data;
+ clrscr();
+ while(1)
+ {
+ printf("\n1: Add.");
+ printf("\n2: Delete");
+ printf("\n3: Display.");
+ printf("\n4: Exit");
+ printf("\nEnter the Choice:");
+ scanf("%d",&ch);
+ switch(ch)
+ {
+ case 1:printf("\nEnter the data to insert in queue:");
+ scanf("%d",&data);
+ add(data);
+ break;
+ case 2: if(isempty())
+printf("\nQueue is Empty!");
+ else
+printf("\nDeleted element is: %d",deleteq());
+ break;
+ case 3:
+if(isempty())
+ printf("\nQueue is Empty!");
+ else
+display();
+ break;
+ case 4: exit(1);
+ }
+ }
+ getch();
+}
+
+
+
+
+11. Write a script in R to create two vectors of different lengths and give these vectors as input to array and print addition and subtraction of those matrices.[25 M]
+# Create two vectors of different lengths.
+vector1 <- c(5,9,3)
+vector2 <- c(10,11,12,13,14,15,20,3)
+array1 <- array(c(vector1,vector2),dim = c(3,3,2))
+# Take these vectors as input to the array.
+vector3 <- c(3,6,5)
+vector4 <- c(12,4,6,8,22,11,18,22)
+array2 <- array(c(vector3,vector4),dim = c(3,3,2))
+# create matrices from these arrays.
+matrix1 <- array1[,,2]
+matrix2 <- array2[,,2]
+# Add the matrices.
+result<- matrix1+matrix2
+print("Addition is")
+print(result)
+result<- matrix1-matrix2
+print("Subtraction is")
+print(result)
+
+
+q)Using AngularJS Create a SPA that show History of some(4-8) Historical Places (use
+MVC).
+
+<!doctype html>
+<html ng-app="App">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="MainCtrl">
+        <div ng-repeat="place in places">
+          <h2>{{ place.name }}</h2>
+          <p>Location: {{ place.location }}</p>
+          <p>Year: {{ place.year }}</p>
+          <p>{{ place.description }}</p>
+        </div>
+      </div>
+      
+  </body>
+  <script>
+    var app = angular.module('App', []);
+    app.factory('HistoricalPlace', function() {
+  function HistoricalPlace(data) {
+    this.name = data.name;
+    this.location = data.location;
+    this.year = data.year;
+    this.description = data.description;
+  }
+  return HistoricalPlace;
+});
+
+app.controller('MainCtrl', function($scope, HistoricalPlace) {
+  $scope.places = [
+    new HistoricalPlace({
+      name: 'Shaniwar Wada',
+      location: 'India',
+      year: '1730',
+      description: 'The foundation stone of the Shaniwar Wada was laid in 1730 by Peshwa Bajirao I. Initially, it was intended to be a colossal palace of seven stories made out of stone. But the people of the national capital argued that only King can have a castle made of stone.'
+    }),
+    new HistoricalPlace({
+      name: 'Red Fort, Delhi',
+      location: 'india',
+      year: '17th century',
+      description: 'When it comes to the famous historical places in India, one cannot miss the Red Fort in Delhi. Also popularly known as the Lal Qila, the Red Fort was constructed during Shah Jahan’s reign in the 17th century.'
+    }),
+    new HistoricalPlace({
+      name: 'Taj Mahal',
+      location: 'Agra, India',
+      year: '1632 AD',
+      description: 'The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favorite wife, Mumtaz Mahal, and it also houses the tomb of Shah Jahan himself.'
+    }),
+    new HistoricalPlace({
+      name: 'Qutub Minar, Delhi',
+      location: 'India',
+      year: 'late 1100s',
+      description: 'Delhi’s Qutub Minar ranks amongst the top 10 historical places in India. A UNESCO World Heritage Site, the Qutub Minar, also known as the Victory Tower, is the tallest brick minaret in the whole world, standing tall at a height of 72.5 metres. '
+    })
+  ];
+});
+
+  </script>
+</html>
