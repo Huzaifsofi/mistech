@@ -1,0 +1,188 @@
+#include <iostream>
+
+class integer {
+    int no;
+public:
+    integer() {}
+    integer(int num) {
+        no = num;
+    }
+
+    integer operator++() {
+        ++no;
+        return *this;
+    }
+
+    integer operator++(int) { //post increment
+        integer temp = *this;
+        no++;
+        return temp;
+    }
+
+    void display() {
+        std::cout << "\nNo = " << no;
+    }
+};
+
+int main() {
+    integer i(10), i1(10), i3;
+
+    std::cout << "\nAfter post increment = ";
+    i3 = i++;
+    i3.display();
+    std::cout << "\nAfter pre increment = ";
+    i3 = ++i1;
+    i3.display();
+
+    return 0;
+}
+
+
+
+Q2 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Mobile {
+    int Model_Number;
+    string Company_Name;
+    double Price;
+    int Stock;
+public:
+    Mobile(int mnum, string cname, double price, int stock) {
+        Model_Number = mnum;
+        Company_Name = cname;
+        Price = price;
+        Stock = stock;
+    }
+    void DisplayDetails() {
+        cout << "Model Number: " << Model_Number << endl;
+        cout << "Company Name: " << Company_Name << endl;
+        cout << "Price: " << Price << endl;
+        cout << "Stock: " << Stock << endl;
+    }
+    void Sell(int quantity) {
+        if (quantity > Stock) {
+            cout << "Sale failed! Not enough stock available." << endl;
+        }
+        else {
+            Stock -= quantity;
+            cout << "Sale successful. Remaining stock: " << Stock << endl;
+        }
+    }
+    void Purchase(int quantity) {
+        Stock += quantity;
+        cout << "Purchase successful. New stock: " << Stock << endl;
+    }
+};
+
+int main() {
+    int choice, mnum, quantity;
+    string cname;
+    double price;
+    cout << "Enter mobile details:" << endl;
+    cout << "Model Number: ";
+    cin >> mnum;
+    cout << "Company Name: ";
+    cin >> cname;
+    cout << "Price: ";
+    cin >> price;
+    cout << "Stock: ";
+    cin >> quantity;
+    Mobile m(mnum, cname, price, quantity);
+    do {
+        cout << "\nEnter choice:\n1. Display Mobile Details\n2. Sell Mobile\n3. Purchase Mobile\n4. Exit\n";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                m.DisplayDetails();
+                break;
+            case 2:
+                cout << "Enter quantity to sell: ";
+                cin >> quantity;
+                m.Sell(quantity);
+                break;
+            case 3:
+                cout << "Enter quantity to purchase: ";
+                cin >> quantity;
+                m.Purchase(quantity);
+                break;
+            case 4:
+                break;
+            default:
+                cout << "Invalid choice. Try again.\n";
+        }
+    } while (choice != 4);
+    return 0;
+}
+
+
+
+node 1
+
+const fs = require('fs');
+
+// Define the file path
+const filePath = './boss.txt';
+
+// Create an event handler to read the contents of the file
+fs.readFile(filePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error(`Error reading file: ${err}`);
+    return;
+  }
+
+  // Print the contents of the file to the console
+  console.log(`File contents:\n${data}`);
+});
+
+
+
+node 2
+
+const http = require('http');
+
+const PORT = 3000;
+
+const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SYBBA(CA) Course Structure</title>
+</head>
+<body>
+  <h1>SYBBA(CA) Course Structure</h1>
+  <ul>
+    <li>Business Mathematics and Statistics</li>
+    <li>Computer Fundamentals and Programming in C</li>
+    <li>Database Management System</li>
+    <li>Computer Networks</li>
+    <li>Object-Oriented Programming using C++</li>
+    <li>Web Technologies and Programming</li>
+    <li>Advanced Programming with Java</li>
+    <li>Software Engineering</li>
+    <li>Operating Systems</li>
+    <li>Computer Graphics and Multimedia</li>
+  </ul>
+</body>
+</html>
+`;
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(htmlContent);
+    res.end();
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write('<h1>404 Not Found</h1>');
+    res.end();
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
